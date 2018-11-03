@@ -1,0 +1,12 @@
+#!/bin/bash
+# Run first time building server
+
+set -e
+set -x
+
+python3 -m venv env
+source env/bin/activate
+pip install -e .
+nodeenv --python-virtualenv
+source env/bin/activate
+npm install .
