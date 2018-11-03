@@ -8,7 +8,7 @@ app.config.from_object('votenow.config')
 
 # Overlay settings read from file specified by environment variable. This is
 # useful for using different on development and production machines.
-app.config.from_envvar('INSTA485_SETTINGS', silent=True)
+#app.config.from_envvar('INSTA485_SETTINGS', silent=True)
 
 # Tell our app about views and model. 
 # Tell pylint and pycodestyle to ignore this coding style violation.
