@@ -11,9 +11,18 @@ class VoteInfo extends React.Component {
 
   }
 
-  // onComponentDidMount() {
-  //   fetch(url)
-  // }
+  componentDidMount() {
+    fetch(this.props.url, {credentials: 'same-origin'})
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText)
+        return response.json()
+      })
+      .then((data) => {
+        this.setState(data);
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }
 
 
   render() {
@@ -22,8 +31,8 @@ class VoteInfo extends React.Component {
   }
 }
 
-VoteInfo.propTypes = {
-  url: PropTypes.string.isRequired,
-};
+// VoteInfo.propTypes = {
+//   // url: PropTypes.string.isRequired,
+// };
 
 export default VoteInfo;

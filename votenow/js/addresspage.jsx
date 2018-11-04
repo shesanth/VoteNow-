@@ -41,7 +41,7 @@ class AddressPage extends React.Component {
 
   getInfo() {
     console.log("getting here!!!");
-    let url = this.props.url + "?address="+ encodeURI(this.street_addr) + encodeURI(this.city) + encodeURI(this.state) + this.zip;
+    let url = this.props.url + "?address="+ this.state.street_addr + this.state.city + this.state.state + this.state.zip;
     this.setState({
       full_url: url,
       show_info: true,
