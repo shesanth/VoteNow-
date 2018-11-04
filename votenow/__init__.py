@@ -10,6 +10,7 @@ app.config.from_object('votenow.config')
 # useful for using different on development and production machines.
 #app.config.from_envvar('INSTA485_SETTINGS', silent=True)
 
-# Tell our app about views and model. 
+# Tell our app about views and api. 
 # Tell pylint and pycodestyle to ignore this coding style violation.
 import votenow.views  # noqa: E402  pylint: disable=wrong-import-position
+import votenow.api  # noqa: E402  pylint: disable=wrong-import-position
