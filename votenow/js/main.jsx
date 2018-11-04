@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import VotePage from './voterinfo';
+import AddressPage from './addresspage';
 
 ReactDOM.render(
-  <VotePage url="" />,
+  <AddressPage url="/api/v1/voterinfo/" />,
   document.getElementById('reactEntry'),
 );
