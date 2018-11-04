@@ -52,9 +52,11 @@ class AddressPage extends React.Component {
   render() {
     if (!this.state.show_info) {
       return(
-        <div>
-        <img src="../static/images/votenow.jpg"/>
-        <table>
+       <div>
+        <br>
+        <img src="../static/images/votenow.jpg" alt = votenowlogo style="display:block; margin-left: 37%; margin-right: 20%; margin-bottom: -8%; width:50%;"/>
+        <p style="text-align: center">Please enter the address you used to register to vote.</p>
+        <table align="center">
         <tbody>
         <tr>
         <td>Street Address:</td>
@@ -74,7 +76,10 @@ class AddressPage extends React.Component {
         </tr>
         <tr>
         <td>
+        <br>
+        <div>
         <input type="submit" value="Submit" onClick={this.getInfo}/> 
+        </div>
         </td>
         </tr>
         </tbody>
