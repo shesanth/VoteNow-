@@ -8,4 +8,4 @@ Use ./bin/votenow to run the server.
 
 flask API to call:
 
-/api/v1/voterinfo?address=<address>
+/api/v1/voterinfo?address=&lt;address&gt;
