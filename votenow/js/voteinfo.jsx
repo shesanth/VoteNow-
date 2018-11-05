@@ -67,7 +67,7 @@ class VoteInfo extends React.Component {
     console.log(address.locationName);
 
     return(
-	<div>
+	<div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
 	<h2> Based on your address: </h2>
 	<h4> Your nearest polling station is: </h4>
 	<p>{address.locationName}<br /> {address.line1} <br />
