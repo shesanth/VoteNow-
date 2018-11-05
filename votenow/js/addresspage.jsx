@@ -56,7 +56,7 @@ class AddressPage extends React.Component {
         <div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
         <img src="../static/images/votenow.jpg"/>
         <br/>
-        <h4>Please enter the address you used to register to vote.</h4>
+        <h4>Please enter the address you used when registering to vote.</h4>
         </div>
         <div style={{ display:"block", marginTop: "10%", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
         <table>
