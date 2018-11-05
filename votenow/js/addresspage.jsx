@@ -53,7 +53,10 @@ class AddressPage extends React.Component {
     if (!this.state.show_info) {
       return(
         <div>
+        <div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
         <img src="../static/images/votenow.jpg"/>
+        </div>
+        <div style={{ display:"block", marginTop: "10%", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
         <table>
         <tbody>
         <tr>
@@ -72,6 +75,7 @@ class AddressPage extends React.Component {
         <td>Zip Code:</td>
         <td><input type="text" name="zip" value={this.state.zip} onChange={this.zipChange}/></td>
         </tr>
+        <br/>
         <tr>
         <td>
         <input type="submit" value="Submit" onClick={this.getInfo}/> 
@@ -79,6 +83,7 @@ class AddressPage extends React.Component {
         </tr>
         </tbody>
         </table>
+        </div>
         </div>
         );
       }
