@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 import VoteInfo from './voteinfo'
 
+var sstyle={
+  width: "1240px",
+  height: "565px",
+  backgroundImage: 'url("../static/images/americanflagtr.png")'}
+
 class AddressPage extends React.Component {
   constructor(props) {
     super(props);
@@ -48,10 +53,11 @@ class AddressPage extends React.Component {
     });
   }
 
-
+  
   render() {
     if (!this.state.show_info) {
       return(
+        <body style = { sstyle } >
         <div>
         <div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
         <img src="../static/images/votenow.jpg"/>
@@ -87,6 +93,7 @@ class AddressPage extends React.Component {
         </table>
         </div>
         </div>
+        </body>
         );
       }
     else {
