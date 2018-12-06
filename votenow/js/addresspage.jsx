@@ -6,8 +6,11 @@ import RepInfo from './repinfo'
 
 var sstyle={
   width: "1240px",
-  height: "565px",
-  backgroundImage: 'url("../static/images/americanflagtr.png")'}
+  height: "560px",
+  backgroundImage: 'url("../static/images/flag13.jpg")',
+  backgroundColor: "#e6ffff",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat" }
 
 class AddressPage extends React.Component {
   constructor(props) {
@@ -71,41 +74,86 @@ class AddressPage extends React.Component {
       return(
         <body style = { sstyle } >
         <div>
-        <div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
-        <img src="../static/images/votenow.jpg"/>
+        <div style={{
+          display:"block",
+          marginLeft: "44%",
+          marginRight: "20%",
+          marginBottom: "-8%",
+          width:"50%"}}>
         <br/>
-        <h4>Please enter the address you used when registering to vote.</h4>
+        <br/>
+        <img src="../static/images/votenow.jpg" height="140px" width="170px"/>
         </div>
-        <div style={{ display:"block", marginTop: "10%", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
+        <br/>
+        <div style={{
+          display:"block",
+          fontFamily: "Arial, Helvetica, sans-serif",
+          color: "#FFFFFF",
+          fontSize: "18px",
+          marginTop: "10%",
+          marginLeft: "44%",
+          marginRight: "20%",
+          marginBottom: "-8%",
+          width:"50%"}}>
         <table>
         <tbody>
         <tr>
-        <td>Street Address:</td>
-        <td><input type="text" name="street_addr" value={this.state.street_addr} onChange={this.street_addrChange}/></td>
+        <td><input type="text" name="street_addr" placeholder="Street Address" value={this.state.street_addr} onChange={this.street_addrChange}/></td>
         </tr>
         <tr>
-        <td>City:</td>
-        <td><input type="text" name="city" value={this.state.city} onChange={this.cityChange}/></td>
+        <td><input type="text" name="city" placeholder="City" value={this.state.city} onChange={this.cityChange}/></td>
         </tr>
         <tr>
-        <td>State:</td>
-        <td><input type="text" name="state" value={this.state.state} onChange={this.stateChange}/></td>
+        <td><input type="text" name="state" placeholder="State" value={this.state.state} onChange={this.stateChange}/></td>
         </tr>
         <tr>
-        <td>Zip Code:</td>
-        <td><input type="text" name="zip" value={this.state.zip} onChange={this.zipChange}/></td>
+        <td><input type="text" name="zip" placeholder="Zip Code" value={this.state.zip} onChange={this.zipChange}/></td>
         </tr>
         <tr>
         <td>
-        <input type="submit" value="Submit vote info" onClick={this.getInfo}/>
-        </td>
-        <td>
-        <input type="submit" value="Rep Info" onClick={this.getRepInfo}/>
+        <input style={{
+            backgroundColor: "white",
+            border: "none",
+            color: "black",
+            textAlign: "center",
+            textDecoration: "none",
+            padding: "10px 24px",
+            display: "inline-block",
+            fontSize: "16px",
+            margin: "4px 2px",
+            cursor: "pointer",
+            borderRadius: "12px",
+        }} type="submit" value="Submit" onClick={this.getInfo}/>
+        <input style={{
+            backgroundColor: "white",
+            border: "none",
+            color: "black",
+            textAlign: "center",
+            textDecoration: "none",
+            padding: "10px 24px",
+            display: "inline-block",
+            fontSize: "16px",
+            margin: "4px 2px",
+            cursor: "pointer",
+            borderRadius: "12px",
+        }} type="submit" value="Get Rep Info" onClick={this.getRepInfo}/> 
         </td>
         </tr>
         </tbody>
         </table>
         </div>
+        </div>
+        <div style={{
+          display:"block",
+          marginTop: "10%",
+          marginLeft: "31%",
+          marginRight: "20%",
+          marginBottom: "-8%",
+          width:"50%"}}>
+        <h4 style={{
+          color: "#FFFFFF",
+          fontSize: "18px",
+          fontFamily: "Arial, Helvetica, sans-serif"}}>Please enter the address you used when registering to vote.</h4>
         </div>
         </body>
         );
