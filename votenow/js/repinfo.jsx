@@ -45,7 +45,10 @@ class RepInfo extends React.Component {
       //officesArr.push(<h4> {contests[i].office}: </h4>);
       let officials = []
       for (let j = this.state.offices[i].officialIndices[0]; j <= this.state.offices[i].officialIndices[this.state.offices[i].officialIndices.length-1]; j++) {
-        officials.push(<html> {this.state.officials[j].name} ({this.state.officials[j].party}) </html>)
+        officials.push(<div> {this.state.officials[j].name} ({this.state.officials[j].party} </div>)
+        if(!(this.state.officials[j].photoUrl == undefined)){
+          officials.push(<img src= {this.state.officials[j].photoUrl} height="140px" width="112px"/>)
+        }
         if(!(this.state.officials[j].channels == undefined)){
           for (let a = 0; a < this.state.officials[j].channels.length; a++){
             officials.push(<div>{this.state.officials[j].channels[a].type}:
@@ -53,7 +56,7 @@ class RepInfo extends React.Component {
           }
         }
         if(!(this.state.officials[j].urls == undefined)){
-          officials.push( <div>website: {this.state.officials[j].urls[0]} <br/></div>)
+          officials.push( <div>website: {this.state.officials[j].urls[0]} <br/><br/></div>)
         }
         else {
           officials.push(<div> website: none <br/> <br/></div>)
