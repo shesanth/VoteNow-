@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 import VoteInfo from './voteinfo'
+import RepInfo from './repinfo'
 
 var sstyle={
   width: "1240px",
@@ -19,12 +20,14 @@ class AddressPage extends React.Component {
       zip: "",
       full_url: "",
       show_info: false,
+      show_reps: false,
     };
     this.getInfo = this.getInfo.bind(this)
     this.street_addrChange = this.street_addrChange.bind(this)
     this.cityChange = this.cityChange.bind(this)
     this.stateChange = this.stateChange.bind(this)
     this.zipChange = this.zipChange.bind(this)
+    this.getRepInfo = this.getRepInfo.bind(this)
   }
 
 
@@ -53,9 +56,18 @@ class AddressPage extends React.Component {
     });
   }
 
-  
+  getRepInfo(){
+    console.log("getting rep infooo!!!");
+    let url = this.props.url + "?address="+ this.state.street_addr + this.state.city + this.state.state + this.state.zip;
+    this.setState({
+      full_url: url,
+      show_reps: true,
+    });
+  }
+
+
   render() {
-    if (!this.state.show_info) {
+    if (!this.state.show_info && !this.state.show_reps) {
       return(
         <body style = { sstyle } >
         <div>
@@ -83,10 +95,12 @@ class AddressPage extends React.Component {
         <td>Zip Code:</td>
         <td><input type="text" name="zip" value={this.state.zip} onChange={this.zipChange}/></td>
         </tr>
-        <br/>
         <tr>
         <td>
-        <input type="submit" value="Submit" onClick={this.getInfo}/> 
+        <input type="submit" value="Submit vote info" onClick={this.getInfo}/>
+        </td>
+        <td>
+        <input type="submit" value="Rep Info" onClick={this.getRepInfo}/>
         </td>
         </tr>
         </tbody>
@@ -96,8 +110,11 @@ class AddressPage extends React.Component {
         </body>
         );
       }
-    else {
+    else if(this.state.show_info) {
       return(<div><VoteInfo url={this.state.full_url}/></div>)
+    }
+    else {
+      return(<div><RepInfo url={this.state.full_url}/></div>)
     }
   }
 }
