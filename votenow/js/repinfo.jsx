@@ -47,16 +47,21 @@ class RepInfo extends React.Component {
       for (let j = this.state.offices[i].officialIndices[0]; j <= this.state.offices[i].officialIndices[this.state.offices[i].officialIndices.length-1]; j++) {
         officials.push(<div> {this.state.officials[j].name} ({this.state.officials[j].party} </div>)
         if(!(this.state.officials[j].photoUrl == undefined)){
-          officials.push(<img src= {this.state.officials[j].photoUrl} height="140px" width="112px"/>)
+          officials.push(<div><img src= {this.state.officials[j].photoUrl} height="140px" width="112px"/><br/></div>)
         }
         if(!(this.state.officials[j].channels == undefined)){
           for (let a = 0; a < this.state.officials[j].channels.length; a++){
-            officials.push(<div>{this.state.officials[j].channels[a].type}:
-            {this.state.officials[j].channels[a].id} </div>)
+            var type = this.state.officials[j].channels[a].type
+            var id = this.state.officials[j].channels[a].id
+            if(type == "Twitter" || type == "Facebook" || type == "YouTube"){
+              console.log("type is", type)
+              var url = "http://www." + type + ".com/" + id;
+              officials.push(<a href= {url}> {type} <br/></a>)
+            }
           }
         }
         if(!(this.state.officials[j].urls == undefined)){
-          officials.push( <div>website: {this.state.officials[j].urls[0]} <br/><br/></div>)
+          officials.push( <a href= {this.state.officials[j].urls[0]}> website <br/></a>)
         }
         else {
           officials.push(<div> website: none <br/> <br/></div>)
@@ -76,8 +81,7 @@ class RepInfo extends React.Component {
     offices = this.state.offices;
     var officials = []
     officials = this.state.officials;
-    console.log(officials);
-    console.log(offices);
+
 
     return(
 	<div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
