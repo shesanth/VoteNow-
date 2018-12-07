@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 
+var sstyle={
+  backgroundColor: "#9ED2DA",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat" }
+
 
 class RepInfo extends React.Component {
   constructor(props) {
@@ -47,7 +52,7 @@ class RepInfo extends React.Component {
       for (let j = this.state.offices[i].officialIndices[0]; j <= this.state.offices[i].officialIndices[this.state.offices[i].officialIndices.length-1]; j++) {
         officials.push(<div> {this.state.officials[j].name} ({this.state.officials[j].party} </div>)
         if(!(this.state.officials[j].photoUrl == undefined)){
-          officials.push(<img src= {this.state.officials[j].photoUrl} height="140px" width="112px"/>)
+          officials.push(<img style={{  display: "block",}} src= {this.state.officials[j].photoUrl} height="140px"/>)
         }
         if(!(this.state.officials[j].channels == undefined)){
           for (let a = 0; a < this.state.officials[j].channels.length; a++){
@@ -63,7 +68,20 @@ class RepInfo extends React.Component {
         }
       }
       //make a button that displays candidates if you click on it
-      officesArr.push(<div><input type="submit" value= {this.state.offices[i].name} onClick={() => this.updateVisible(this.state.visible, i)} />
+      officesArr.push(<div><input style={{
+      		display: "inline",      
+            backgroundColor: "white",
+            borderColor: "grey",
+            color: "black",
+            textAlign: "center",
+            textDecoration: "none",
+            padding: "10px 24px",
+            display: "block",
+            fontSize: "16px",
+            margin: "4px 2px",
+            cursor: "pointer",
+            borderRadius: "12px",
+        }}type="submit" value= {this.state.offices[i].name} onClick={() => this.updateVisible(this.state.visible, i)} />
                 { this.state.visible[i] ? officials : null }</div>)
     }
 
@@ -80,11 +98,15 @@ class RepInfo extends React.Component {
     console.log(offices);
 
     return(
+
+    <body style = { sstyle } >
+    <br/>
 	<div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
 	<h2> Based on your registered address: </h2>
 	<h4> Your elected officials are: </h4>
   {this.RepInfo()}
   </div>
+  </body>
     );
 
   }
