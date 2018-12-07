@@ -85,18 +85,22 @@ class AddressPage extends React.Component {
         <img src="../static/images/votenow.jpg" height="140px" width="170px"/>
         </div>
         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <table>
+        <tbody>
         <div style={{
           display:"block",
           fontFamily: "Arial, Helvetica, sans-serif",
           color: "#FFFFFF",
           fontSize: "18px",
           marginTop: "10%",
-          marginLeft: "44%",
+          marginLeft: "159%",
           marginRight: "20%",
           marginBottom: "-8%",
           width:"50%"}}>
-        <table>
-        <tbody>
         <tr>
         <td><input type="text" name="street_addr" placeholder="Street Address" value={this.state.street_addr} onChange={this.street_addrChange}/></td>
         </tr>
@@ -109,8 +113,27 @@ class AddressPage extends React.Component {
         <tr>
         <td><input type="text" name="zip" placeholder="Zip Code" value={this.state.zip} onChange={this.zipChange}/></td>
         </tr>
+        </div>
+        <br/>
+        <br/>
+        <div style={{
+          display: "inline",
+          marginLeft: "136%"}}>
         <tr>
         <td>
+        <input style={{      
+            backgroundColor: "white",
+            border: "none",
+            color: "black",
+            textAlign: "center",
+            textDecoration: "none",
+            padding: "10px 24px",
+            display: "inline-block",
+            fontSize: "16px",
+            margin: "4px 2px",
+            cursor: "pointer",
+            borderRadius: "12px",
+        }} type="submit" value="Get Voting Info" onClick={this.getInfo}/>
         <input style={{
             backgroundColor: "white",
             border: "none",
@@ -123,37 +146,25 @@ class AddressPage extends React.Component {
             margin: "4px 2px",
             cursor: "pointer",
             borderRadius: "12px",
-        }} type="submit" value="Submit" onClick={this.getInfo}/>
-        <input style={{
-            backgroundColor: "white",
-            border: "none",
-            color: "black",
-            textAlign: "center",
-            textDecoration: "none",
-            padding: "10px 24px",
-            display: "inline-block",
-            fontSize: "16px",
-            margin: "4px 2px",
-            cursor: "pointer",
-            borderRadius: "12px",
-        }} type="submit" value="Get Rep Info" onClick={this.getRepInfo}/> 
+        }} type="submit" value="Get Current Reps" onClick={this.getRepInfo}/> 
         </td>
         </tr>
+        </div>
         </tbody>
         </table>
         </div>
-        </div>
+        <br/>
         <div style={{
           display:"block",
-          marginTop: "10%",
-          marginLeft: "31%",
+          marginTop: "5%",
+          marginLeft: "27%",
           marginRight: "20%",
           marginBottom: "-8%",
           width:"50%"}}>
         <h4 style={{
           color: "#FFFFFF",
           fontSize: "18px",
-          fontFamily: "Arial, Helvetica, sans-serif"}}>Please enter the address you used when registering to vote.</h4>
+          fontFamily: "Arial, Helvetica, sans-serif"}}>*To get voting information: Please enter the address you used when registering to vote.</h4>
         </div>
         </body>
         );
