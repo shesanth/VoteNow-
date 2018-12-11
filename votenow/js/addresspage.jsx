@@ -183,10 +183,11 @@ class AddressPage extends React.Component {
         <div class="button_cont" align="center">
           <a class="example_a" href="" onClick={this.changeState}
           style={{
+            fontFamily: "Arial, Helvetica, sans-serif",
             textDecoration: "none",
-            color: "#fff",
+            color: "#000",
             textTransform: "uppercase",
-            background: "#60a3bc",
+            background: "#89D0D0",
             padding: "20px",
             borderRadius: "5px",
             display: "inline-block",
@@ -202,10 +203,11 @@ class AddressPage extends React.Component {
         <div class="button_cont" align="center">
           <a class="example_a" href="" onClick={this.changeState}
           style={{
+            fontFamily: "Arial, Helvetica, sans-serif",
             textDecoration: "none",
-            color: "#fff",
+            color: "#000",
             textTransform: "uppercase",
-            background: "#60a3bc",
+            background: "#89D0D0",
             padding: "20px",
             borderRadius: "5px",
             display: "inline-block",

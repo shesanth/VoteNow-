@@ -13,6 +13,7 @@ class VoteInfo extends React.Component {
 		  election: {},
 		  pollingLocations: [{address: {}}],
 		  state: [],
+		  empty: true,
     };
     this.updateVisible = this.updateVisible.bind(this);
   }
@@ -65,9 +66,23 @@ class VoteInfo extends React.Component {
     var contests = []
     contests = this.state.contests;
     console.log(address.locationName);
-
+    var empty = this.state.empty;
+    console.log(empty);
     return(
-	<div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
+    <div>
+    {empty ? (
+    		<body>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<h1 style= {{ textAlign:"center" , width:"500px", marginLeft: "380px", fontSize: "56px", fontFamily: "Arial, Helvetica, sans-serif"}}>Oops!</h1>
+			<p style={{ textAlign:"center", width:"500px", marginLeft: "380px", fontSize: "20px", fontFamily: "Arial, Helvetica, sans-serif"}}>There is no upcoming election, so we don't have any information to show you. 
+				However, if you would like more information about your current representatives, head back to our home page, enter your address again, and press the "Get Current Reps" button. </p>
+			</body>
+      ) : (
+      <div style={{ display:"block", marginLeft: "38%", marginRight: "20%", marginBottom: "-8%", width:"50%"}}>
 	<h2> Based on your address: </h2>
 	<h4> Your nearest polling station is: </h4>
 	<p>{address.locationName}<br /> {address.line1} <br />
@@ -78,6 +93,9 @@ class VoteInfo extends React.Component {
 
 	<h3> The local election Races include: </h3>
 	{this.createRaces(contests)}
+	</div>
+        
+      )}
 	</div>
 
     );
