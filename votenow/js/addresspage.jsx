@@ -30,7 +30,15 @@ class AddressPage extends React.Component {
     this.cityChange = this.cityChange.bind(this)
     this.stateChange = this.stateChange.bind(this)
     this.zipChange = this.zipChange.bind(this)
+    this.changeState = this.changeState.bind(this)
     this.getRepInfo = this.getRepInfo.bind(this)
+  }
+
+  changeState() {
+    this.setState({
+      show_info: false,
+      show_reps: false
+    });
   }
 
 
@@ -170,10 +178,42 @@ class AddressPage extends React.Component {
         );
       }
     else if(this.state.show_info) {
-      return(<div><VoteInfo url={this.state.full_url}/></div>)
+      return(
+      <div>
+        <div class="button_cont" align="center">
+          <a class="example_a" href="" onClick={this.changeState}
+          style={{
+            textDecoration: "none",
+            color: "#fff",
+            textTransform: "uppercase",
+            background: "#60a3bc",
+            padding: "20px",
+            borderRadius: "5px",
+            display: "inline-block",
+            border: "none"
+          }}>Back</a>
+        </div>
+      <VoteInfo url={this.state.full_url}/>
+      </div>)
     }
     else {
-      return(<div><RepInfo url={this.state.full_url}/></div>)
+      return(
+      <div>
+        <div class="button_cont" align="center">
+          <a class="example_a" href="" onClick={this.changeState}
+          style={{
+            textDecoration: "none",
+            color: "#fff",
+            textTransform: "uppercase",
+            background: "#60a3bc",
+            padding: "20px",
+            borderRadius: "5px",
+            display: "inline-block",
+            border: "none"
+          }}>Back</a>
+        </div>
+      <RepInfo url={this.state.full_url}/>
+      </div>)
     }
   }
 }
