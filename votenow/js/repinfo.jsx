@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import fetch from 'isomorphic-fetch';
 
 var sstyle={
-  
+
   backgroundImage: 'url("../static/images/repbg2.png")',
   backgroundColor: "#89D0D0",
   backgroundPosition: "center",
@@ -59,11 +59,17 @@ class RepInfo extends React.Component {
 
         if(!(this.state.officials[j].channels == undefined)){
           for (let a = 0; a < this.state.officials[j].channels.length; a++){
-            officials.push(<div style={{ marginLeft: "4%", fontFamily: "Arial, Helvetica, sans-serif"}}>{this.state.officials[j].channels[a].type}: {this.state.officials[j].channels[a].id} </div>)
+            var type = this.state.officials[j].channels[a].type
+            var id = this.state.officials[j].channels[a].id
+            if(type == "Twitter" || type == "Facebook" || type == "YouTube"){
+              console.log("type is", type)
+              var url = "http://www." + type + ".com/" + id;
+              officials.push(<div style={{ marginLeft: "4%", fontFamily: "Arial, Helvetica, sans-serif"}}><a href= {url}> {type} <br/></a></div>)
+            }
           }
         }
         if(!(this.state.officials[j].urls == undefined)){
-          officials.push( <div style={{marginLeft: "4%", fontFamily: "Arial, Helvetica, sans-serif"}}>website: {this.state.officials[j].urls[0]} <br/><br/></div>)
+          officials.push( <div style={{marginLeft: "4%", fontFamily: "Arial, Helvetica, sans-serif"}}><a href= {this.state.officials[j].urls[0]}> website <br/><br/></a></div>)
         }
         else {
           officials.push(<div style={{marginLeft: "4%", fontFamily: "Arial, Helvetica, sans-serif"}}> website: none <br/> <br/></div>)
@@ -71,7 +77,7 @@ class RepInfo extends React.Component {
       }
       //make a button that displays candidates if you click on it
       officesArr.push(<div><input style={{
-      		display: "inline",      
+      		display: "inline",
             backgroundColor: "white",
             borderColor: "grey",
             color: "black",
@@ -96,8 +102,7 @@ class RepInfo extends React.Component {
     offices = this.state.offices;
     var officials = []
     officials = this.state.officials;
-    console.log(officials);
-    console.log(offices);
+
 
     return(
 
